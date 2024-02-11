@@ -8,10 +8,18 @@ let wards = [
   "Suginami (杉並区)",
 ];
 
+const handleSelectItem = (item: string) => {
+  console.log("item", item);
+};
+
 function App() {
   return (
     <div>
-      <ListGroup items={wards} heading="Wards" />
+      <ListGroup
+        items={wards}
+        heading="Wards"
+        onSelectItem={handleSelectItem}
+      />
     </div>
   );
 }
