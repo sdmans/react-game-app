@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 let wards = [
   "Shibuya (渋谷区)",
@@ -15,11 +16,12 @@ const handleSelectItem = (item: string) => {
 function App() {
   return (
     <div>
-      <ListGroup
+      <Alert>Hello World!</Alert>
+      {/* <ListGroup
         items={wards}
         heading="Wards"
         onSelectItem={handleSelectItem}
-      />
+      /> */}
     </div>
   );
 }
