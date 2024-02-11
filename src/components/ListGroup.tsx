@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   let wards = [
@@ -9,9 +9,9 @@ function ListGroup() {
     "Suginami (杉並区)",
   ];
 
-  const handleClick = (e: MouseEvent) => {
-    console.log("event", e);
-  };
+  // Hook
+  // State variable and setter function to update state
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
@@ -19,7 +19,17 @@ function ListGroup() {
       {wards.length === 0 && <p>No items found!</p>}
       <ul className="list-group">
         {wards.map((ward, index) => (
-          <li className="list-group-item" key={ward} onClick={handleClick}>
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={ward}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {ward}
           </li>
         ))}
