@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 export interface AlertProps {
-  children: string;
+  children: ReactNode;
 }
 
 const Alert = ({ children }: AlertProps) => {

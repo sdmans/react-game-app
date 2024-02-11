@@ -16,7 +16,9 @@ const handleSelectItem = (item: string) => {
 function App() {
   return (
     <div>
-      <Alert>Hello World!</Alert>
+      <Alert>
+        <span className="fs-3">Hello World!</span>
+      </Alert>
       {/* <ListGroup
         items={wards}
         heading="Wards"
