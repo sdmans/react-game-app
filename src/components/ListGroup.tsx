@@ -1,36 +1,36 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let wards = [
-    "Shibuya (渋谷区)",
-    "Shinjuku (新宿区)",
-    "Chiyoda (千代田区)",
-    "Setagaya (世田谷区)",
-    "Suginami (杉並区)",
-  ];
+// Figure out shape of props input
+// { items: [], heading: string }
 
+export interface ListGroupProps {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({ items, heading }: ListGroupProps) {
   // Hook
   // State variable and setter function to update state
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
-      {wards.length === 0 && <p>No items found!</p>}
+      <h1>{heading}</h1>
+      {items.length === 0 && <p>No items found!</p>}
       <ul className="list-group">
-        {wards.map((ward, index) => (
+        {items.map((item, index) => (
           <li
             className={
               selectedIndex === index
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            key={ward}
+            key={item}
             onClick={() => {
               setSelectedIndex(index);
             }}
           >
-            {ward}
+            {item}
           </li>
         ))}
       </ul>
