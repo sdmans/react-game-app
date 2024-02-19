@@ -1,8 +1,18 @@
 interface Props {
   children: string;
-  color?: string; // Optional property w/ default value
+  color?: ButtonColor; // Optional property w/ default value
   onClick: () => void;
 }
+
+type ButtonColor =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "danger"
+  | "warning"
+  | "info"
+  | "light"
+  | "dark";
 
 const Button = ({ children, onClick, color = "primary" }: Props) => {
   return (
