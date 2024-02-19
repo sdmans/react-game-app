@@ -1,5 +1,5 @@
 const Button = () => {
-  const btnClasses = [
+  const classes = [
     "primary",
     "secondary",
     "success",
@@ -9,7 +9,24 @@ const Button = () => {
     "light",
     "dark",
   ];
-  return <button className="btn btn-primary">Button</button>;
+  const log = (name: string): void => {
+    console.log("Logging: ", name);
+  };
+  return (
+    <>
+      {classes.map((name, index) => (
+        <button
+          className={`btn btn-${name}`}
+          key={name + index}
+          onClick={() => {
+            log(name);
+          }}
+        >
+          Click Me!
+        </button>
+      ))}
+    </>
+  );
 };
 
 export default Button;
