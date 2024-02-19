@@ -27,9 +27,12 @@ function App() {
   };
   return (
     <div>
-      <Alert dismiss={dismissAlert}>
-        <span className="fs-3">Hello World!</span>
-      </Alert>
+      {showAlert && (
+        <Alert dismiss={dismissAlert}>
+          <span className="fs-3">Hello World!</span>
+        </Alert>
+      )}
+
       <div>
         <Button disabled={showAlert} onClick={() => setAlert(true)}>
           My Button
