@@ -1,6 +1,7 @@
 interface Props {
   children: string;
   color?: ButtonColor; // Optional property w/ default value
+  disabled?: boolean;
   onClick: () => void;
 }
 
@@ -14,9 +15,18 @@ type ButtonColor =
   | "light"
   | "dark";
 
-const Button = ({ children, onClick, color = "primary" }: Props) => {
+const Button = ({
+  children,
+  onClick,
+  color = "primary",
+  disabled = false,
+}: Props) => {
   return (
-    <button className={"btn btn-" + color} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={"btn btn-" + color}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

@@ -19,17 +19,19 @@ const handleSelectItem = (item: string) => {
 // Planning:
 // Track showalert status from parent somehow. Perhaps a boolean stored in state
 // * This would need to be in the parent since that has both component nested inside it.
-// Find a way to toggle that status on/off. ie. On w/ Button, off with Alert dismiss?
-// const [showAlert, setAlert] = useState(false);
+// // Find a way to toggle that status on/off. ie. On w/ Button, off with Alert dismiss?
 
 function App() {
+  const [showAlert, setAlert] = useState(false);
   return (
     <div>
       <Alert>
         <span className="fs-3">Hello World!</span>
       </Alert>
       <div>
-        <Button onClick={() => console.log("Clicked")}>My Button</Button>
+        <Button disabled={showAlert} onClick={() => setAlert(!showAlert)}>
+          My Button
+        </Button>
       </div>
       {/* <ListGroup
         items={wards}
