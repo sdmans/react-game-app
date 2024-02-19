@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
       {showAlert && (
-        <Alert dismiss={dismissAlert}>
+        <Alert onClose={dismissAlert}>
           <span className="fs-3">Hello World!</span>
         </Alert>
       )}
