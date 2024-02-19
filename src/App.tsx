@@ -1,6 +1,7 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
+import { useState } from "react";
 
 let wards = [
   "Shibuya (渋谷区)",
@@ -13,6 +14,13 @@ let wards = [
 const handleSelectItem = (item: string) => {
   console.log("item", item);
 };
+
+// Create a way to show/hide the Alert component using the Button
+// Planning:
+// Track showalert status from parent somehow. Perhaps a boolean stored in state
+// * This would need to be in the parent since that has both component nested inside it.
+// Find a way to toggle that status on/off. ie. On w/ Button, off with Alert dismiss?
+// const [showAlert, setAlert] = useState(false);
 
 function App() {
   return (
