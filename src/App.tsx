@@ -11,10 +11,6 @@ let wards = [
   "Suginami (杉並区)",
 ];
 
-const handleSelectItem = (item: string) => {
-  console.log("item", item);
-};
-
 // Create a way to show/hide the Alert component using the Button
 // Planning:
 // Track showalert status from parent somehow. Perhaps a boolean stored in state
@@ -22,14 +18,20 @@ const handleSelectItem = (item: string) => {
 // // Find a way to toggle that status on/off. ie. On w/ Button, off with Alert dismiss?
 
 function App() {
+  const handleSelectItem = (item: string) => {
+    console.log("item", item);
+  };
   const [showAlert, setAlert] = useState(false);
+  const dismissAlert = () => {
+    setAlert(false);
+  };
   return (
     <div>
-      <Alert>
+      <Alert dismiss={dismissAlert}>
         <span className="fs-3">Hello World!</span>
       </Alert>
       <div>
-        <Button disabled={showAlert} onClick={() => setAlert(!showAlert)}>
+        <Button disabled={showAlert} onClick={() => setAlert(true)}>
           My Button
         </Button>
       </div>
