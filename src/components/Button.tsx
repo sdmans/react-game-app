@@ -1,31 +1,13 @@
-const Button = () => {
-  const classes = [
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "info",
-    "light",
-    "dark",
-  ];
-  const log = (name: string): void => {
-    console.log("Logging: ", name);
-  };
+interface Props {
+  children: string;
+  onClick: () => void;
+}
+
+const Button = ({ children, onClick }: Props) => {
   return (
-    <>
-      {classes.map((name, index) => (
-        <button
-          className={`btn btn-${name}`}
-          key={name + index}
-          onClick={() => {
-            log(name);
-          }}
-        >
-          Click Me!
-        </button>
-      ))}
-    </>
+    <button className="btn btn-primary" onClick={onClick}>
+      {children}
+    </button>
   );
 };
 

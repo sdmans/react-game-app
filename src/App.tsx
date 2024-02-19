@@ -20,7 +20,9 @@ function App() {
       <Alert>
         <span className="fs-3">Hello World!</span>
       </Alert>
-      <Button></Button>
+      <div>
+        <Button onClick={() => console.log("Clicked")}>My Button</Button>
+      </div>
       {/* <ListGroup
         items={wards}
         heading="Wards"
