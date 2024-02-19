@@ -1,5 +1,6 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 let wards = [
   "Shibuya (渋谷区)",
@@ -19,6 +20,7 @@ function App() {
       <Alert>
         <span className="fs-3">Hello World!</span>
       </Alert>
+      <Button></Button>
       {/* <ListGroup
         items={wards}
         heading="Wards"
