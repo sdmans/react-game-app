@@ -1,16 +1,17 @@
-import Main from "./components/Main";
-import {
-  BrowserRouter as Router,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import MainPage from "./components/MainPage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
+import About from "./components/About";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Main,
+    element: <MainPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ]);
 

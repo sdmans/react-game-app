@@ -11,7 +11,7 @@ let wards = [
   "Suginami (杉並区)",
 ];
 
-function Main() {
+function MainPage() {
   const handleSelectItem = (item: string) => {
     console.log("item", item);
   };
@@ -42,4 +42,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainPage;
