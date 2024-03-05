@@ -1,9 +1,10 @@
 import MainPage from "./components/MainPage";
-import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Nav from "./components/Nav";
+// pages
 import ErrorPage from "./components/ErrorPage";
 import About from "./components/About";
-
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <MainPage />,
@@ -13,12 +14,27 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />,
   },
-]);
+];
 
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <header>
+          <h1>Router</h1>
+          <Nav />
+        </header>
+
+        <main>
+          <Routes>
+            {routes.map((route, index) => {
+              return (
+                <Route key={index} path={route.path} element={route.element} />
+              );
+            })}
+          </Routes>
+        </main>
+      </BrowserRouter>
     </>
   );
 }

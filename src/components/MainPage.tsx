@@ -2,7 +2,6 @@ import ListGroup from "./ListGroup";
 import Alert from "./Alert";
 import Button from "./Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 let wards = [
   "Shibuya (渋谷区)",
@@ -23,8 +22,6 @@ function MainPage() {
 
   return (
     <div>
-      <Link to={`/`}>Home</Link>
-      <Link to={`/about`}>About</Link>
       {showAlert && (
         <Alert onClose={dismissAlert}>
           <span className="fs-3">Hello World!</span>
