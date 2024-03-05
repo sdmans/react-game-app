@@ -22,6 +22,7 @@ function MainPage() {
 
   return (
     <div>
+      <h2>Main Page</h2>
       {showAlert && (
         <Alert onClose={dismissAlert}>
           <span className="fs-3">Hello World!</span>

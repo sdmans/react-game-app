@@ -1,7 +1,7 @@
-import MainPage from "./components/MainPage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Nav from "./components/Nav";
 // pages
+import MainPage from "./components/MainPage";
 import ErrorPage from "./components/ErrorPage";
 import About from "./components/About";
 const routes = [
@@ -21,7 +21,7 @@ function App() {
     <>
       <BrowserRouter>
         <header>
-          <h1>Router</h1>
+          <h1>Game Browser App</h1>
           <Nav />
         </header>
 
