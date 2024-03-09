@@ -1,9 +1,10 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Nav from "./components/Nav";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // pages
 import MainPage from "./components/MainPage";
 import ErrorPage from "./components/ErrorPage";
 import About from "./components/About";
+import Layout from "./components/Layout";
+
 const routes = [
   {
     path: "/",
@@ -16,27 +17,15 @@ const routes = [
   },
 ];
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <header>
-          <h1>Game Browser App</h1>
-          <Nav />
-        </header>
+const routers = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: routes,
+  },
+]);
 
-        <main>
-          <Routes>
-            {routes.map((route, index) => {
-              return (
-                <Route key={index} path={route.path} element={route.element} />
-              );
-            })}
-          </Routes>
-        </main>
-      </BrowserRouter>
-    </>
-  );
+function App() {
+  return <RouterProvider router={routers} />;
 }
 
 export default App;
