@@ -48,6 +48,15 @@ function MainPage() {
     setAlert(false);
   };
 
+  const handleSubmit = (ward: string) => {
+    console.log("handleSubmit Ward", ward);
+    if (!wards.includes(ward)) {
+      wards.push(ward);
+    } else {
+      console.warn("Ward already exists, not adding...");
+    }
+  };
+
   // Return markup based on state
   // Loading, display placeholder
   if (loading) return <div>Loading...</div>;
@@ -63,18 +72,19 @@ function MainPage() {
         </Alert>
       )}
 
-      <p>{data.body}</p>
+      {/* <p>{data.body}</p> */}
 
       <div>
         <Button disabled={showAlert} onClick={() => setAlert(true)}>
           My Button
         </Button>
       </div>
-      {/* <ListGroup
-      items={wards}
-      heading="Wards"
-      onSelectItem={handleSelectItem}
-      /> */}
+      <ListGroup
+        items={wards}
+        heading="Wards"
+        onSelectItem={handleSelectItem}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 }

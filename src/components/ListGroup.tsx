@@ -8,27 +8,33 @@ export interface ListGroupProps {
   items: string[];
   heading: string;
   onSelectItem: (item: string) => void;
+  handleSubmit: (ward: string) => any;
 }
 
-function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
+function ListGroup({
+  items,
+  heading,
+  onSelectItem,
+  handleSubmit,
+}: ListGroupProps) {
   // Hook
   // State variable and setter function to update state
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selectedWard, setSelectedWard] = useState("");
   const [ward, setWard] = useState("");
 
-  const handleSubmit = (event: any) => {
+  const updateSelected = (event: any) => {
     event.preventDefault();
     setSelectedWard(ward);
-    if (!items.includes(ward)) {
-      items.push(ward);
-    }
+    setSelectedWard("");
+    setWard(""); // Reset state of ward
+    handleSubmit(ward);
   };
 
   return (
     <>
       <h1>{heading}</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={updateSelected}>
         <input
           type="text"
           value={ward}
