@@ -59,11 +59,8 @@ function MainPage() {
     }
   };
 
-  const handleDelete = (ward: string, index: number) => {
-    console.log("deleting ward...", ward, index);
-    console.log("items", items);
+  const handleDelete = (ward: string) => {
     const updatedWards = items.filter((item) => item !== ward);
-    console.log("updatedWards", updatedWards);
     setItems(updatedWards);
   };
 

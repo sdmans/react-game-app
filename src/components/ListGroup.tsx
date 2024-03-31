@@ -9,7 +9,7 @@ export interface ListGroupProps {
   heading: string;
   onSelectItem: (item: string) => void;
   handleSubmit: (ward: string) => any;
-  handleDelete: (ward: string, index: number) => void;
+  handleDelete: (ward: string) => void;
 }
 
 function ListGroup({
@@ -68,7 +68,7 @@ function ListGroup({
             </span>
             <button
               className="btn btn-danger"
-              onClick={() => handleDelete(item, index)}
+              onClick={() => handleDelete(item)}
             >
               X
             </button>
