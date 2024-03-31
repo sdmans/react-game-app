@@ -15,6 +15,7 @@ function MainPage() {
   const [data, setData] = useState({} as any);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null as any);
+  const [items, setItems] = useState(wards);
 
   // What is the purpose of useEffect?
   // It has to be used in the body of a function component to work.
@@ -49,12 +50,21 @@ function MainPage() {
   };
 
   const handleSubmit = (ward: string) => {
-    console.log("handleSubmit Ward", ward);
-    if (!wards.includes(ward)) {
-      wards.push(ward);
+    if (!items.includes(ward)) {
+      const updatedItems = items.slice();
+      updatedItems.push(ward);
+      setItems(updatedItems);
     } else {
       console.warn("Ward already exists, not adding...");
     }
+  };
+
+  const handleDelete = (ward: string, index: number) => {
+    console.log("deleting ward...", ward, index);
+    console.log("items", items);
+    const updatedWards = items.filter((item) => item !== ward);
+    console.log("updatedWards", updatedWards);
+    setItems(updatedWards);
   };
 
   // Return markup based on state
@@ -80,10 +90,11 @@ function MainPage() {
         </Button>
       </div>
       <ListGroup
-        items={wards}
+        items={items}
         heading="Wards"
         onSelectItem={handleSelectItem}
         handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
       />
     </div>
   );

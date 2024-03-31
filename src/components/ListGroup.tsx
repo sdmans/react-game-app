@@ -9,6 +9,7 @@ export interface ListGroupProps {
   heading: string;
   onSelectItem: (item: string) => void;
   handleSubmit: (ward: string) => any;
+  handleDelete: (ward: string, index: number) => void;
 }
 
 function ListGroup({
@@ -16,6 +17,7 @@ function ListGroup({
   heading,
   onSelectItem,
   handleSubmit,
+  handleDelete,
 }: ListGroupProps) {
   // Hook
   // State variable and setter function to update state
@@ -53,14 +55,23 @@ function ListGroup({
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            key={item}
-            onClick={() => {
-              setSelectedIndex(index);
-              onSelectItem(item);
-              setSelectedWard(item);
-            }}
+            key={index}
           >
-            {item}
+            <span
+              onClick={() => {
+                setSelectedIndex(index);
+                onSelectItem(item);
+                setSelectedWard(item);
+              }}
+            >
+              {item}
+            </span>
+            <button
+              className="btn btn-danger"
+              onClick={() => handleDelete(item, index)}
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
