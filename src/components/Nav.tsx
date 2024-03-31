@@ -12,7 +12,11 @@ function Nav() {
               </Link>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to={`/about`}>
+              <NavLink
+                className="nav-link"
+                to={`/about`}
+                state={{ userid: 1234 }}
+              >
                 About
               </NavLink>
             </li>
